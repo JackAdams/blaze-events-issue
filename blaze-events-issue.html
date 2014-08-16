@@ -1,0 +1,26 @@
+<head>
+  <title>blaze-events-issue</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <h1>Click the list items below:</h1>
+  <ul>
+    {{#each items}}
+      {{> item}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="item">
+  <li class="item">
+    {{> widget context=this template="item" target=".item"}}
+  </li>
+</template>
+
+<template name="widget_content">
+  {{context.name}}
+</template>
